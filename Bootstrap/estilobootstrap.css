@@ -1,0 +1,13 @@
+body {
+    background: url("https://i.pinimg.com/originals/34/09/bb/3409bb12ed05f0a8bf17832180d976c1.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+}
+

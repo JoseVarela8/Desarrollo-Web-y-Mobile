@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiendo HTML</title>
+    <style>
+        .icon-container {
+            position: relative;
+            padding: 10px;
+            background-color: #7FFFD4;
+            /* Cambia el color de fondo a verde agua */
+            border: 2px solid #298a66;
+            text-align: center;
+            /* Centrar el contenido horizontalmente */
+        }
+
+        .icon-container::before,
+        .icon-container::after {
+            content: "\1F44D";
+            /* Código Unicode de un ícono (puedes cambiarlo) */
+            font-family: "Font Awesome";
+            /* Reemplaza con la fuente de tus íconos */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+        }
+
+        .icon-container::before {
+            left: 0;
+            /* Centrar el ícono a la izquierda */
+        }
+
+        .icon-container::after {
+            right: 0;
+            /* Centrar el ícono a la derecha */
+        }
+
+        .icon-container:hover {
+            background-color: rgb(3, 143, 92);
+        }
+
+        p {
+            font: italic small-caps bold 20px/1px Georgia, serif;
+            color: rgb(0, 0, 0);
+        }
+
+        body {
+            background-color: rgb(226, 175, 98);
+        }
+
+        img::after {
+            color: brown;
+            margin-top: 20px;
+            padding: 20px;
+            /* Añade margen en la parte superior para separar del contenido */
+        }
+
+        img {
+            width: 20vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="icon-container">
+        <p>Contenido del elemento</p>
+    </div>
+    <h3>Aca viene el contenido de mi sitio web</h3>
+    <img src="https://scontent.fmvd1-1.fna.fbcdn.net/v/t39.30808-6/261243184_10159624669791413_7912897465966784866_n.jpg?stp=dst-jpg_s1080x2048&_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_ohc=TAOcC6iw70MAX_XANnG&_nc_ht=scontent.fmvd1-1.fna&oh=00_AfBFRxIZXQNWrR24_feJ2E9asQp0skBThh800Bm1val-Ag&oe=64D9F4FA"
+        width="200">
+    <p2>HOLA</p2>
+    <footer>
+        &copy; 2023 Programación Web y Mobile Sape
+    </footer>
+</body>
+
+</html>
