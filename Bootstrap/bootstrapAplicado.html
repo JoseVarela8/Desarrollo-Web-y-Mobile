@@ -12,10 +12,10 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="card mybackground">
-                    <div class="card-body">
+                    <div class="card-body" id="ToDo">
                         <div class="title-div">
                             <h5 class="card-title">To Do</h5>
-                            <button type="button" class="btn btn-light">...</button>
+                            <button type="button" class="btn btn-light" id="botonToDo">+</button>
                         </div>
                         <!-- Agrega contenido aquí -->
                         <div class="card" style="width: 100%;">
@@ -49,10 +49,10 @@
             </div>
             <div class="col-md-4">
                 <div class="card mybackground">
-                    <div class="card-body">
+                    <div class="card-body" id="Doing">
                         <div class="title-div">
                             <h5 class="card-title">Doing</h5>
-                            <button type="button" class="btn btn-light">...</button>
+                            <button type="button" class="btn btn-light" id="botonDoing">+</button>
                         </div>
                         <!-- Agrega contenido aquí -->
                         <div class="card" style="width: 100%;">
@@ -73,13 +73,37 @@
                         </div>
                     </div>
                 </div>
+                <!--
+
+                <div id="data-container">
+                    Los datos de la API se mostrarán aquí 
+                </div>
+                -->
+
+
+
+                <div class="card mybackground">
+                    <div class="card-body" id="Done">
+
+                        <div class="card pokemoncard">
+                            <div class="title-div">
+                                <div id="pokemon-container">
+                                    <!-- Los datos del Pokémon se mostrarán aquí -->
+                                </div>
+                                <div id="pokemon-container2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="col-md-4">
                 <div class="card mybackground">
-                    <div class="card-body">
+                    <div class="card-body" id="Done">
                         <div class="title-div">
                             <h5 class="card-title">Done</h5>
-                            <button type="button" class="btn btn-light">...</button>
+                            <button type="button" class="btn btn-light" id="botonDone">+</button>
                         </div>
                         <!-- Agrega contenido aquí -->
                         <div class="card" style="width: 100%;">
@@ -120,11 +144,12 @@
                                 <p class="card-text">With supporting text below as a natural lead-in to additional
                                     content.</p>
                                 <div class="title-div">
-                                    <div>
+                                    <div id="file-input-container">
                                         <a href="./bootstrap.html" class="btn btn-primary">Add Partner</a>
-                                        <button type="button" class="btn btn-secondary" id="secondary-button">
-                                            <span class="bi bi-paperclip"></span> ...
+
+                                        <button id="attach-button" class="btn btn-success">_
                                         </button>
+                                        <input type="file" id="file-input" style="display: none;">
                                     </div>
                                     <span class="bi bi-person-circle circle-icon"></span>
                                 </div>
@@ -139,17 +164,144 @@
 </body>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         const secondaryButton = document.getElementsByClassName("btn btn-secondary");
         const mySecondaryButtons = [...secondaryButton];
 
         mySecondaryButtons.forEach(second => {
-            second.addEventListener("click", function() {
-            alert("¡Hiciste clic en el botón secundario!");
-        });
+            second.addEventListener("click", function () {
+                alert("¡Hiciste clic en el botón secundario!");
+            });
         })
-    
+
     });
-    </script>
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const attachButton = document.getElementById("attach-button");
+        const fileInput = document.getElementById("file-input");
+
+        attachButton.addEventListener("click", function () {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener("change", function () {
+            // Aquí puedes ejecutar el código que desees con el archivo adjunto
+            console.log("Archivo seleccionado:", fileInput.files[0]);
+        });
+    });
+</script>
+
+<script>
+    function funcionsita(panel) {
+        const toDoColumn = document.getElementById(panel);
+        const newCard = document.createElement("div");
+        newCard.innerHTML = `
+            <div class="card" style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title">Nueva Tarea</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional
+                                    content.</p>
+                                <div class="title-div">
+                                    <div>
+                                        <a href="./bootstrap.html" class="btn btn-primary">Add Partner</a>
+                                        <button type="button" class="btn btn-secondary">
+                                            <span class="bi bi-paperclip"></span> ...
+                                        </button>
+                                    </div>
+                                    <span class="bi bi-person-circle circle-icon"></span>
+                                </div>
+                            </div>
+                        </div>
+            `;
+        toDoColumn.appendChild(newCard);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const botonToDo = document.getElementById("botonToDo");
+        const botonDoing = document.getElementById("botonDoing");
+        const botonDone = document.getElementById("botonDone");
+
+
+        botonToDo.addEventListener("click", function () {
+            funcionsita("ToDo")
+        });
+
+        botonDoing.addEventListener("click", function () {
+            funcionsita("Doing")
+        });
+        botonDone.addEventListener("click", function () {
+            funcionsita("Done")
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const pokemonContainer = document.getElementById("pokemon-container");
+        const pokemonContainer2 = document.getElementById("pokemon-container2");
+
+
+        // URL de la PokeAPI para obtener información del Pokémon Bulbasaur (ID 1)
+        var pokemonNumber = getRandomInt(30)+1;
+        var pokeaux = pokemonNumber.toString();
+        const pokeauxurl = "https://pokeapi.co/api/v2/pokemon/"+pokeaux+"/";
+        const apiUrl = pokeauxurl.toString();
+
+        // Realizar una solicitud a la PokeAPI utilizando fetch()
+        fetch(apiUrl)
+            .then(response => response.json()) // Convertir la respuesta a JSON
+            .then(data => {
+                // Manipular los datos obtenidos de la API
+                const pokemonName = data.name;
+                const pokemonAbilities = data.abilities.map(ability => ability.ability.name);
+                const pokemonTypes = data.types.map(type => type.type.name);
+                const pokemonImageUrl = data.sprites.front_default;
+
+                const pokemonInfo = `
+                    <h2>${pokemonName}</h2>                   
+                    <p>Abilities: ${pokemonAbilities.join(", ")}</p>
+                    <p>Types: ${pokemonTypes.join(", ")}</p>
+                `;
+                const pokemonImg = `
+                    <img src="${pokemonImageUrl}" alt="${pokemonName}">
+                `;
+
+                pokemonContainer.innerHTML = pokemonInfo;
+                pokemonContainer2.innerHTML = pokemonImg;
+            })
+            .catch(error => {
+                console.error("Error al conectar con la PokeAPI:", error);
+            });
+    });
+</script>
+
+<script>
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const dataContainer = document.getElementById("data-container");
+
+        // URL de la API que deseas conectarte
+        const apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=Montevideo&appid=be5a00a5e62936ccec82ff71e23694e6";
+
+        // Realizar una solicitud a la API utilizando fetch()
+        fetch(apiUrl)
+            .then(response => response.json()) // Convertir la respuesta a JSON
+            .then(data => {
+                // Manipular los datos obtenidos de la API
+                dataContainer.textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error("Error al conectar con la API:", error);
+            });
+    });
+</script>
+
 
 </html>
