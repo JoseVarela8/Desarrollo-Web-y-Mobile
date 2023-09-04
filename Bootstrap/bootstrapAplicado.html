@@ -74,24 +74,22 @@
                     </div>
                 </div>
                 <!--
-
                 <div id="data-container">
                     Los datos de la API se mostrarán aquí 
                 </div>
                 -->
 
-
-
-                <div class="card mybackground">
+                <div class="card mybackground" style="width: 100%;">
                     <div class="card-body" id="Done">
 
                         <div class="card pokemoncard">
                             <div class="title-div">
-                                <div id="pokemon-container">
+                                <div id="pokemon-container" class="textoPokemon">
                                     <!-- Los datos del Pokémon se mostrarán aquí -->
                                 </div>
-                                <div id="pokemon-container2">
+                                <div id="pokemon-container2" class="imgPokemon">
                                 </div>
+                                <button type="button" class="btn btn-primary" id="botonNext">next</button>
                             </div>
                         </div>
                     </div>
@@ -192,6 +190,55 @@
         });
     });
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const botonNext = document.getElementById("botonNext");
+
+        botonNext.addEventListener("click", function () {
+            nextPokemon()
+        });
+
+
+    });
+
+    function nextPokemon() {
+        const pokemonContainer = document.getElementById("pokemon-container");
+        const pokemonContainer2 = document.getElementById("pokemon-container2");
+
+
+        // URL de la PokeAPI para obtener información del Pokémon Bulbasaur (ID 1)
+        var pokemonNumber = getRandomInt(30) + 1;
+        var pokeaux = pokemonNumber.toString();
+        const pokeauxurl = "https://pokeapi.co/api/v2/pokemon/" + pokeaux + "/";
+        const apiUrl = pokeauxurl.toString();
+
+        // Realizar una solicitud a la PokeAPI utilizando fetch()
+        fetch(apiUrl)
+            .then(response => response.json()) // Convertir la respuesta a JSON
+            .then(data => {
+                // Manipular los datos obtenidos de la API
+                const pokemonName = data.name;
+                const pokemonAbilities = data.abilities.map(ability => ability.ability.name);
+                const pokemonTypes = data.types.map(type => type.type.name);
+                const pokemonImageUrl = data.sprites.front_default;
+
+                const pokemonInfo = `
+                    <h2>${pokemonName}</h2>                   
+                    <p>Abilities: ${pokemonAbilities.join(", ")}</p>
+                    <p>Types: ${pokemonTypes.join(", ")}</p>
+                `;
+                const pokemonImg = `
+                    <img src="${pokemonImageUrl}" alt="${pokemonName}">
+                `;
+
+                pokemonContainer.innerHTML = pokemonInfo;
+                pokemonContainer2.innerHTML = pokemonImg;
+            })
+            .catch(error => {
+                console.error("Error al conectar con la PokeAPI:", error);
+            });
+    }
+</script>
 
 <script>
     function funcionsita(panel) {
@@ -244,9 +291,9 @@
 
 
         // URL de la PokeAPI para obtener información del Pokémon Bulbasaur (ID 1)
-        var pokemonNumber = getRandomInt(30)+1;
+        var pokemonNumber = getRandomInt(30) + 1;
         var pokeaux = pokemonNumber.toString();
-        const pokeauxurl = "https://pokeapi.co/api/v2/pokemon/"+pokeaux+"/";
+        const pokeauxurl = "https://pokeapi.co/api/v2/pokemon/" + pokeaux + "/";
         const apiUrl = pokeauxurl.toString();
 
         // Realizar una solicitud a la PokeAPI utilizando fetch()
