@@ -1,0 +1,86 @@
+/* En tu archivo styles.css o styles.scss */
+/* @import "~bootstrap/dist/css/bootstrap.min.css"; */
+
+
+.card-img-top {
+    
+    /*max-width: 200px;*/ /* Limita el ancho a 200 píxeles */
+    max-height: 200px ;
+    min-height: 200px;
+  }
+
+  /* Establece un contenedor para las tarjetas */
+.tarjeta-contenedor {
+    display: flex; /* Utiliza flexbox para distribuir las tarjetas */
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en filas */
+    justify-content: flex-start; /* Distribuye el espacio horizontalmente entre las tarjetas */
+  }
+  
+  /* Establece el estilo de cada tarjeta */
+  .tarjeta {
+    flex-basis: calc(33.33% - 10px); /* Ancho de cada tarjeta (33.33% para tres columnas con margen) */
+    margin: 10px; /* Margen entre las tarjetas */
+    padding: 10px; /* Espaciado interno de las tarjetas */
+    border: 1px solid #ccc; /* Borde para las tarjetas (opcional) */
+  }
+  .header{
+    min-height: 10vh;
+    max-height: 10vh;
+  }
+  .centroPagina {
+    margin-top: 10vh;
+    min-height: 80vh;
+    max-height: 80vh;
+    min-width: 100vw;
+    position: fixed;
+    overflow: scroll;
+    background-image: url('https://img.freepik.com/foto-gratis/render-3d-fondo-diseno-comunicaciones-red-poca-profundidad-campo_1048-14612.jpg?w=1480&t=st=1695420436~exp=1695421036~hmac=5b6cdb322d6f84f8bc55e3cf0b84413269fe017cb80b1f9438d814fdcbc76a75'); /* Reemplaza 'ruta/a/la/imagen.jpg' con la ruta de tu imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el cuerpo */
+    background-repeat: repeat; /* Evita que la imagen de fondo se repita */
+    background-attachment: fixed; /* Fija la imagen de fondo para que no se desplace con el contenido */
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .fondo {
+    background-image: url('https://img.freepik.com/foto-gratis/render-3d-fondo-diseno-comunicaciones-red-poca-profundidad-campo_1048-14612.jpg?w=1480&t=st=1695420436~exp=1695421036~hmac=5b6cdb322d6f84f8bc55e3cf0b84413269fe017cb80b1f9438d814fdcbc76a75'); /* Reemplaza 'ruta/a/la/imagen.jpg' con la ruta de tu imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el cuerpo */
+    background-repeat: repeat; /* Evita que la imagen de fondo se repita */
+    background-attachment: fixed; /* Fija la imagen de fondo para que no se desplace con el contenido */
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  #paginator {
+    /* Propiedades para centrar horizontalmente y verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    /* Opcional: Establece un alto y ancho si es necesario */
+    width: 100%;
+    height: 100vh; /* Esto asegura que ocupe toda la altura de la ventana */
+  
+    /* Otras propiedades de estilo según sea necesario */
+    background-color: #f0f0f0; /* Cambia el color de fondo si es necesario */
+  }
+
+  .separador{
+    justify-content: flex-start;
+  }
+  #titulo{
+    justify-content: center;
+  }
+
+  .footer {
+    position: fixed; /* Puedes usar "absolute" en lugar de "fixed" si prefieres que sea relativo al contenido */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 10vh;
+    background-color: #333; /* Color de fondo del pie de página */
+    color: #fff; /* Color del texto del pie de página */
+    padding: 10px; /* Espaciado interior para el contenido del pie de página */
+    text-align: center; /* Alineación del contenido del pie de página */
+  }
+  

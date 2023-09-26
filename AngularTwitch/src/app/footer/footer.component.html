@@ -1,0 +1,19 @@
+<nav aria-label="...">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [ngClass]="{ 'disabled': activePage === 1 }">
+        <a class="page-link" href="#" (click)="prevPage()">Previous</a>
+      </li>
+      <li class="page-item" [ngClass]="{ 'active': activePage === 1 }">
+        <a class="page-link" href="#" (click)="changePage(1)">1</a>
+      </li>
+      <li class="page-item" [ngClass]="{ 'active': activePage === 2 }">
+        <a class="page-link" href="#" (click)="changePage(2)">2</a>
+      </li>
+      <li class="page-item" [ngClass]="{ 'active': activePage === 3 }">
+        <a class="page-link" href="#" (click)="changePage(3)">3</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#" (click)="nextPage()">Next</a>
+      </li>
+    </ul>
+  </nav>

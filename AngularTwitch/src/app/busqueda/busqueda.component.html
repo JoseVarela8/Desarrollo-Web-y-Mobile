@@ -1,0 +1,8 @@
+<div>
+    <input #entrada id="entrada" type="text" (keyup)="setTextToSearch($event)" [value]="textToSearch" placeholder="Buscar juegos...">
+    <button (click)="searchGames()">Buscar</button>
+  </div>
+  <ul>
+    <li *ngFor="let result of searchResults">{{ result.name }}</li>
+  </ul>
+  
