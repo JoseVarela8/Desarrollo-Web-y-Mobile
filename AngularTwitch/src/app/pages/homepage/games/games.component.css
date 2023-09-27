@@ -23,14 +23,10 @@
     padding: 10px; /* Espaciado interno de las tarjetas */
     border: 1px solid #ccc; /* Borde para las tarjetas (opcional) */
   }
-  .header{
-    min-height: 10vh;
-    max-height: 10vh;
-  }
   .centroPagina {
     margin-top: 10vh;
     min-height: 80vh;
-    max-height: 80vh;
+    max-height: 87vh;
     min-width: 100vw;
     position: fixed;
     overflow: scroll;
@@ -50,42 +46,48 @@
     margin-top: 0;
     margin-bottom: 0;
   }
-  
-  #paginator {
-    /* Propiedades para centrar horizontalmente y verticalmente */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    /* Opcional: Establece un alto y ancho si es necesario */
-    width: 100%;
-    height: 100vh; /* Esto asegura que ocupe toda la altura de la ventana */
-  
-    /* Otras propiedades de estilo según sea necesario */
-    background-color: #f0f0f0; /* Cambia el color de fondo si es necesario */
-  }
-
   .separador{
-    justify-content: flex-start;
+    justify-content: flex-start; 
   }
   #titulo{
     justify-content: center;
   }
 
-  .footer {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    position: fixed; /* Puedes usar "absolute" en lugar de "fixed" si prefieres que sea relativo al contenido */
-    bottom: 0;
+  .modal-background {
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    padding: 10px;
-    background-color: #333; /* Color de fondo del pie de página */
-    color: #fff; /* Color del texto del pie de página */
-    padding: 10px; /* Espaciado interior para el contenido del pie de página */
-    text-align: center; /* Alineación del contenido del pie de página */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .justify-content-center { 
-    margin: 0;
-}
+  
+  .modal-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-content {
+    /* Estilos para el contenido de la modal */
+  }
+  
+  .modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .modal-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  

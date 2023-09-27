@@ -17,27 +17,8 @@
 <body>
   
   <app-header class="header"></app-header>
-  
-  <div class="centroPagina">
-    <app-search (search)="handleSearch($event)"></app-search>
-    <div *ngIf="datos">
-      <div class="container">
-        <div class="d-flex flex-wrap separador">
-          <div class="col-md-4 mb-4 separador" *ngFor="let item of datosFiltrados">
-            <div class="card bg-dark text-center text-white" style="width: 100%;">
-              <h5 class="card-title">{{ item.name }}</h5>
-              <img [src]="item.background_image" class="card-img-top img-fluid" alt="Imagen del juego">
-              <div class="card-body">
-                <!-- <p class="card-text">Descripción del juego.</p> -->
-                <button (click)="openModal(item)" class="btn btn-primary">More Info</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
+  <!-- app.games -->
+  <app-games></app-games>  
 <app-footer class="footer"></app-footer>
 </body>
 

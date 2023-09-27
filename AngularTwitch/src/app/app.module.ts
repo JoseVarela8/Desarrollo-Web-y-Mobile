@@ -10,10 +10,11 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ModalComponent } from './modal/modal.component';
 import { SearchComponent } from './busqueda/busqueda.component';
+import { GamesComponent } from './pages/homepage/games/games.component';
 
 
 @NgModule({
-  declarations: [MiComponente, ChunkPipe, HeaderComponent, FooterComponent, ModalComponent, SearchComponent],
+  declarations: [MiComponente, ChunkPipe, HeaderComponent, FooterComponent, ModalComponent, SearchComponent, GamesComponent],
   imports: [BrowserModule,AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [MiComponente]

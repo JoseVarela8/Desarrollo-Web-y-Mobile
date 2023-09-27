@@ -1,0 +1,17 @@
+.footer {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    position: fixed; /* Puedes usar "absolute" en lugar de "fixed" si prefieres que sea relativo al contenido */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #333; /* Color de fondo del pie de página */
+    color: #fff; /* Color del texto del pie de página */
+    padding: 10px; /* Espaciado interior para el contenido del pie de página */
+    text-align: center; /* Alineación del contenido del pie de página */
+  }
+  .justify-content-center { 
+    margin: 0;
+}

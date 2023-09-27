@@ -1,0 +1,36 @@
+<div class="centroPagina">
+    <app-search (search)="handleSearch($event)"></app-search>
+    <div *ngIf="datos">
+      <div class="container">
+        <div class="d-flex flex-wrap separador">
+          <div class="col-md-4 mb-4 separador" *ngFor="let item of datosFiltrados">
+            <div class="card bg-dark text-center text-white" style="width: 100%;">
+              <h5 class="card-title">{{ item.name }}</h5>
+              <img [src]="item.background_image" class="card-img-top img-fluid" alt="Imagen del juego">
+              <div class="card-body">
+                <!-- <p class="card-text">Descripción del juego.</p> -->
+                <button (click)="openModal(item)" class="btn btn-primary">More Info</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="modalOpen" class="modal-background">
+    <div class="modal-container">
+      <div class="modal-content">
+        <h2>{{ selectedGame.name }}</h2>
+        <img [src]="selectedGame.background_image" class="card-img-top img-fluid" alt="Imagen del juego">
+        <p>Released on: {{selectedGame.released}}</p>
+        <p>Positive suggestions: {{selectedGame.suggestions_count}}</p>
+
+        <!-- Agrega otros detalles del juego aquí -->
+      </div>
+      <button (click)="closeModal()">Cerrar</button>
+    </div>
+  </div>
+  
+  
+  

@@ -9,6 +9,9 @@ export class JuegosService {
 
   constructor(private http: HttpClient,) { }
 
+
+ 
+  private apiUrl = 'https://api.rawg.io/api/games'; // URL base de la API
   private apiKey = '?key=f20f34929c5746d4b333de24d5c66f36';  // URL to web api} ACA PONER EL URL DE LA API DE JUEGOS
 
   obtenerDatosDesdeAPI(url: string): Observable<any> {
@@ -19,4 +22,5 @@ export class JuegosService {
       })
     });
   }
+
 }
